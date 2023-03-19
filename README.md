@@ -31,3 +31,5 @@ This project also includes an Azure Pipelines pipeline that deploys the services
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+This `README.md` file was generated with ChatGPT.
