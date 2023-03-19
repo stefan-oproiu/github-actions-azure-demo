@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  servicea:
+    image: service-a-image
+    container_name: service-a-container
+    build:
+      context: ./ServiceA
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      ServiceBUrl: "http://serviceb:80"
+    networks:
+      - my-network
+
+  serviceb:
+    image: serviceb-image
+    container_name: service-b-container
+    build:
+      context: ./ServiceB
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    networks:
+      - my-network
+
+networks:
+  my-network:
+
+volumes:
+  app-settings:
